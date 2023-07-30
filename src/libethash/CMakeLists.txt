@@ -45,5 +45,5 @@ if (CRYPTOPP_FOUND)
 endif()
 
 add_subdirectory(blake3)
-add_executable(libblake3 ${SOURCE_FILES})
+add_executable(libblake3 blake3)
 target_link_libraries(libblake3)
