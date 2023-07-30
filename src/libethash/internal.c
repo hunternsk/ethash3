@@ -32,7 +32,7 @@
 #include "internal.h"
 #include "data_sizes.h"
 #include "io.h"
-#include "blake3/reference_impl.h"
+#include "reference_impl.h"
 
 #ifdef WITH_CRYPTOPP
 

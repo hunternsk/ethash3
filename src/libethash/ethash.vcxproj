@@ -265,13 +265,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\compiler.h" />
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\fnv.h" />
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\data_sizes.h" />
+    <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\reference_impl.c" />
+    <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\reference_impl.h" />
     <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\util_win32.c" />
     <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\io_win32.c" />
     <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\mmap_win32.c" />
     <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\sha3.c" />
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\sha3.h" />
-    <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\blake3\reference_impl.c" />
-    <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\blake3\reference_impl.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="E:\GitHub-Projects\C\ethash\ZERO_CHECK.vcxproj">

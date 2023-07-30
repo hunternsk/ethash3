@@ -18,6 +18,8 @@ set(FILES 	util.h
           	compiler.h
           	fnv.h
           	data_sizes.h
+			reference_impl.c
+			reference_impl.h
 )
 
 if (MSVC)
@@ -37,8 +39,6 @@ if (CRYPTOPP_FOUND)
 else()
 	list(APPEND FILES sha3.c sha3.h)
 endif()
-
-list(APPEND FILES blake3/reference_impl.c blake3/reference_impl.h)
 
 add_library(${LIBRARY} ${FILES})
 
