@@ -5,6 +5,14 @@
 		{
 			"compiler" : 
 			{
+				"implicit" : {},
+				"path" : "C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/gcc.exe"
+			},
+			"language" : "ASM"
+		},
+		{
+			"compiler" : 
+			{
 				"id" : "GNU",
 				"implicit" : 
 				{

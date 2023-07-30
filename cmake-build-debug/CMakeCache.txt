@@ -14,6 +14,18 @@
 # EXTERNAL cache entries
 ########################
 
+//the compiler flags to enable AVX2
+BLAKE3_CFLAGS_AVX2:STRING=-mavx2
+
+//the compiler flags to enable AVX512
+BLAKE3_CFLAGS_AVX512:STRING=-mavx512f -mavx512vl
+
+//the compiler flags to enable SSE2
+BLAKE3_CFLAGS_SSE2:STRING=-msse2
+
+//the compiler flags to enable SSE4.1
+BLAKE3_CFLAGS_SSE4.1:STRING=-msse4.1
+
 //The directory containing a CMake configuration file for Boost.
 Boost_DIR:PATH=Boost_DIR-NOTFOUND
 
@@ -43,6 +55,36 @@ CMAKE_ADDR2LINE:FILEPATH=C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLi
 
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/ar.exe
+
+//ASM compiler
+CMAKE_ASM_COMPILER:FILEPATH=C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/gcc.exe
+
+//A wrapper around 'ar' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_ASM_COMPILER_AR:FILEPATH=C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/gcc-ar.exe
+
+//A wrapper around 'ranlib' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_ASM_COMPILER_RANLIB:FILEPATH=C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/gcc-ranlib.exe
+
+//Flags used by the ASM compiler during all build types.
+CMAKE_ASM_FLAGS:STRING=
+
+//Flags used by the ASM compiler during DEBUG builds.
+CMAKE_ASM_FLAGS_DEBUG:STRING=-g
+
+//Flags used by the ASM compiler during MINSIZEREL builds.
+CMAKE_ASM_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
+//Flags used by the ASM compiler during RELEASE builds.
+CMAKE_ASM_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+//Flags used by the ASM compiler during RELWITHDEBINFO builds.
+CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+//For backwards compatibility, what version of CMake commands and
+// syntax should this version of CMake try to support.
+CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
@@ -136,8 +178,56 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=E:/GitHub-Projects/C/ethash/cmake-build-
 //Convert GNU import libraries to MS format (requires Visual Studio)
 CMAKE_GNUtoMS:BOOL=OFF
 
+//User executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+//Read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+//Read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+//C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+//Info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+//Object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+//Program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+//Locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+//Modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+//Man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/ethash
+
+//Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+//System admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+//Modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+//Read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/ld.exe
@@ -182,6 +272,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=ethash
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.4.1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=4
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/ranlib.exe
@@ -274,6 +379,12 @@ CRYPTOPP_LIBRARY_RELEASE:FILEPATH=CRYPTOPP_LIBRARY_RELEASE-NOTFOUND
 
 //CryptoPP root directory
 CRYPTOPP_ROOT_DIR:PATH=CRYPTOPP_ROOT_DIR-NOTFOUND
+
+//Single output directory for building all executables.
+EXECUTABLE_OUTPUT_PATH:PATH=
+
+//Single output directory for building all libraries.
+LIBRARY_OUTPUT_PATH:PATH=
 
 //Executable for running MPI programs.
 MPIEXEC_EXECUTABLE:FILEPATH=MPIEXEC_EXECUTABLE-NOTFOUND
@@ -370,6 +481,15 @@ ethash_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 ethash_SOURCE_DIR:STATIC=E:/GitHub-Projects/C/ethash
 
+//Value Computed by CMake
+libblake3_BINARY_DIR:STATIC=E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash
+
+//Value Computed by CMake
+libblake3_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+libblake3_SOURCE_DIR:STATIC=E:/GitHub-Projects/C/ethash/src/libethash
+
 
 ########################
 # INTERNAL cache entries
@@ -395,6 +515,23 @@ Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_COMPILER
+CMAKE_ASM_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_COMPILER_AR
+CMAKE_ASM_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_COMPILER_RANLIB
+CMAKE_ASM_COMPILER_RANLIB-ADVANCED:INTERNAL=1
+CMAKE_ASM_COMPILER_WORKS:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS
+CMAKE_ASM_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_DEBUG
+CMAKE_ASM_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_MINSIZEREL
+CMAKE_ASM_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_RELEASE
+CMAKE_ASM_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_ASM_FLAGS_RELWITHDEBINFO
+CMAKE_ASM_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=e:/GitHub-Projects/C/ethash/cmake-build-debug
 //Major version of cmake used to create the current loaded cache
@@ -474,6 +611,38 @@ CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=E:/GitHub-Projects/C/ethash
+//ADVANCED property for variable: CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATADIR
+CMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR
+CMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR
+CMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INFODIR
+CMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR
+CMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR
+CMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR
+CMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR
+CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_MANDIR
+CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
+CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR
+CMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
+CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
+CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR
+CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
@@ -627,4 +796,6 @@ _Boost_NAMESPACE_LAST:INTERNAL=boost
 _Boost_USE_MULTITHREADED_LAST:INTERNAL=ON
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/ethash
 

@@ -37,3 +37,45 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/mingw/bin/objdump.exe")
 endif()
 
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "E:/GitHub-Projects/C/ethash/src/libethash/blake3.h")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash/libblake3.a")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/blake3/blake3-targets.cmake")
+    file(DIFFERENT _cmake_export_file_changed FILES
+         "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/blake3/blake3-targets.cmake"
+         "E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash/CMakeFiles/Export/29264059f05ee613eed25797c3cafaee/blake3-targets.cmake")
+    if(_cmake_export_file_changed)
+      file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/blake3/blake3-targets-*.cmake")
+      if(_cmake_old_config_files)
+        string(REPLACE ";" ", " _cmake_old_config_files_text "${_cmake_old_config_files}")
+        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/blake3/blake3-targets.cmake\" will be replaced.  Removing files [${_cmake_old_config_files_text}].")
+        unset(_cmake_old_config_files_text)
+        file(REMOVE ${_cmake_old_config_files})
+      endif()
+      unset(_cmake_old_config_files)
+    endif()
+    unset(_cmake_export_file_changed)
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/blake3" TYPE FILE FILES "E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash/CMakeFiles/Export/29264059f05ee613eed25797c3cafaee/blake3-targets.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/blake3" TYPE FILE FILES "E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash/CMakeFiles/Export/29264059f05ee613eed25797c3cafaee/blake3-targets-release.cmake")
+  endif()
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/blake3" TYPE FILE FILES
+    "E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash/blake3-config.cmake"
+    "E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash/blake3-config-version.cmake"
+    )
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "E:/GitHub-Projects/C/ethash/cmake-build-debug/libblake3.pc")
+endif()
+

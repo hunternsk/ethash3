@@ -63,6 +63,48 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # E:/GitHub-Projects/C/ethash/CMakeLists.txt
@@ -89,11 +131,11 @@ build src/libethash/CMakeFiles/ethash.dir/internal.c.obj: C_COMPILER__ethash_uns
   OBJECT_DIR = src\libethash\CMakeFiles\ethash.dir
   OBJECT_FILE_DIR = src\libethash\CMakeFiles\ethash.dir
 
-build src/libethash/CMakeFiles/ethash.dir/blake3/blake3.c.obj: C_COMPILER__ethash_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3/blake3.c || cmake_object_order_depends_target_ethash
-  DEP_FILE = src\libethash\CMakeFiles\ethash.dir\blake3\blake3.c.obj.d
+build src/libethash/CMakeFiles/ethash.dir/blake3.c.obj: C_COMPILER__ethash_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3.c || cmake_object_order_depends_target_ethash
+  DEP_FILE = src\libethash\CMakeFiles\ethash.dir\blake3.c.obj.d
   FLAGS = -std=gnu99 -O3 -DNDEBUG -fdiagnostics-color=always
   OBJECT_DIR = src\libethash\CMakeFiles\ethash.dir
-  OBJECT_FILE_DIR = src\libethash\CMakeFiles\ethash.dir\blake3
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\ethash.dir
 
 build src/libethash/CMakeFiles/ethash.dir/io_posix.c.obj: C_COMPILER__ethash_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/io_posix.c || cmake_object_order_depends_target_ethash
   DEP_FILE = src\libethash\CMakeFiles\ethash.dir\io_posix.c.obj.d
@@ -115,13 +157,80 @@ build src/libethash/CMakeFiles/ethash.dir/sha3.c.obj: C_COMPILER__ethash_unscann
 #############################################
 # Link the static library src\libethash\libethash.a
 
-build src/libethash/libethash.a: C_STATIC_LIBRARY_LINKER__ethash_Release src/libethash/CMakeFiles/ethash.dir/io.c.obj src/libethash/CMakeFiles/ethash.dir/internal.c.obj src/libethash/CMakeFiles/ethash.dir/blake3/blake3.c.obj src/libethash/CMakeFiles/ethash.dir/io_posix.c.obj src/libethash/CMakeFiles/ethash.dir/sha3.c.obj
+build src/libethash/libethash.a: C_STATIC_LIBRARY_LINKER__ethash_Release src/libethash/CMakeFiles/ethash.dir/io.c.obj src/libethash/CMakeFiles/ethash.dir/internal.c.obj src/libethash/CMakeFiles/ethash.dir/blake3.c.obj src/libethash/CMakeFiles/ethash.dir/io_posix.c.obj src/libethash/CMakeFiles/ethash.dir/sha3.c.obj
   LANGUAGE_COMPILE_FLAGS = -std=gnu99 -O3 -DNDEBUG
   OBJECT_DIR = src\libethash\CMakeFiles\ethash.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = src\libethash\libethash.a
   TARGET_PDB = ethash.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target blake3
+
+
+#############################################
+# Order-only phony target for blake3
+
+build cmake_object_order_depends_target_blake3: phony || src/libethash/CMakeFiles/blake3.dir
+
+build src/libethash/CMakeFiles/blake3.dir/blake3.c.obj: C_COMPILER__blake3_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3.c || cmake_object_order_depends_target_blake3
+  DEP_FILE = src\libethash\CMakeFiles\blake3.dir\blake3.c.obj.d
+  FLAGS = -std=gnu99 -O3 -DNDEBUG -fvisibility=hidden -fdiagnostics-color=always
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\blake3.dir
+
+build src/libethash/CMakeFiles/blake3.dir/blake3_dispatch.c.obj: C_COMPILER__blake3_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3_dispatch.c || cmake_object_order_depends_target_blake3
+  DEP_FILE = src\libethash\CMakeFiles\blake3.dir\blake3_dispatch.c.obj.d
+  FLAGS = -std=gnu99 -O3 -DNDEBUG -fvisibility=hidden -fdiagnostics-color=always
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\blake3.dir
+
+build src/libethash/CMakeFiles/blake3.dir/blake3_portable.c.obj: C_COMPILER__blake3_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3_portable.c || cmake_object_order_depends_target_blake3
+  DEP_FILE = src\libethash\CMakeFiles\blake3.dir\blake3_portable.c.obj.d
+  FLAGS = -std=gnu99 -O3 -DNDEBUG -fvisibility=hidden -fdiagnostics-color=always
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\blake3.dir
+
+build src/libethash/CMakeFiles/blake3.dir/blake3_avx2_x86-64_windows_gnu.S.obj: ASM_COMPILER__blake3_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3_avx2_x86-64_windows_gnu.S || cmake_object_order_depends_target_blake3
+  DEP_FILE = src\libethash\CMakeFiles\blake3.dir\blake3_avx2_x86-64_windows_gnu.S.obj.d
+  FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\blake3.dir
+
+build src/libethash/CMakeFiles/blake3.dir/blake3_avx512_x86-64_windows_gnu.S.obj: ASM_COMPILER__blake3_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3_avx512_x86-64_windows_gnu.S || cmake_object_order_depends_target_blake3
+  DEP_FILE = src\libethash\CMakeFiles\blake3.dir\blake3_avx512_x86-64_windows_gnu.S.obj.d
+  FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\blake3.dir
+
+build src/libethash/CMakeFiles/blake3.dir/blake3_sse2_x86-64_windows_gnu.S.obj: ASM_COMPILER__blake3_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3_sse2_x86-64_windows_gnu.S || cmake_object_order_depends_target_blake3
+  DEP_FILE = src\libethash\CMakeFiles\blake3.dir\blake3_sse2_x86-64_windows_gnu.S.obj.d
+  FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\blake3.dir
+
+build src/libethash/CMakeFiles/blake3.dir/blake3_sse41_x86-64_windows_gnu.S.obj: ASM_COMPILER__blake3_unscanned_Release E$:/GitHub-Projects/C/ethash/src/libethash/blake3_sse41_x86-64_windows_gnu.S || cmake_object_order_depends_target_blake3
+  DEP_FILE = src\libethash\CMakeFiles\blake3.dir\blake3_sse41_x86-64_windows_gnu.S.obj.d
+  FLAGS = -O3 -DNDEBUG
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  OBJECT_FILE_DIR = src\libethash\CMakeFiles\blake3.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target blake3
+
+
+#############################################
+# Link the static library src\libethash\libblake3.a
+
+build src/libethash/libblake3.a: C_STATIC_LIBRARY_LINKER__blake3_Release src/libethash/CMakeFiles/blake3.dir/blake3.c.obj src/libethash/CMakeFiles/blake3.dir/blake3_dispatch.c.obj src/libethash/CMakeFiles/blake3.dir/blake3_portable.c.obj src/libethash/CMakeFiles/blake3.dir/blake3_avx2_x86-64_windows_gnu.S.obj src/libethash/CMakeFiles/blake3.dir/blake3_avx512_x86-64_windows_gnu.S.obj src/libethash/CMakeFiles/blake3.dir/blake3_sse2_x86-64_windows_gnu.S.obj src/libethash/CMakeFiles/blake3.dir/blake3_sse41_x86-64_windows_gnu.S.obj
+  LANGUAGE_COMPILE_FLAGS = -std=gnu99 -O3 -DNDEBUG
+  OBJECT_DIR = src\libethash\CMakeFiles\blake3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = src\libethash\libblake3.a
+  TARGET_PDB = blake3.a.dbg
 
 
 #############################################
@@ -146,6 +255,48 @@ build src/libethash/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/libethash/rebuild_cache: phony src/libethash/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/libethash/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/libethash/CMakeFiles/install.util: CUSTOM_COMMAND src/libethash/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\src\libethash && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/libethash/install: phony src/libethash/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/libethash/CMakeFiles/install/local.util: CUSTOM_COMMAND src/libethash/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\src\libethash && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/libethash/install/local: phony src/libethash/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/libethash/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/libethash/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\src\libethash && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/libethash/install/strip: phony src/libethash/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # E:/GitHub-Projects/C/ethash/CMakeLists.txt
@@ -160,8 +311,8 @@ build src/libethash/rebuild_cache: phony src/libethash/CMakeFiles/rebuild_cache.
 
 build cmake_object_order_depends_target_Benchmark_FULL: phony || cmake_object_order_depends_target_ethash
 
-build src/benchmark/CMakeFiles/Benchmark_FULL.dir/benchmark.cpp.obj: CXX_COMPILER__Benchmark_FULL_unscanned_Release E$:/GitHub-Projects/C/ethash/src/benchmark/benchmark.cpp || cmake_object_order_depends_target_Benchmark_FULL
-  DEP_FILE = src\benchmark\CMakeFiles\Benchmark_FULL.dir\benchmark.cpp.obj.d
+build src/benchmark/CMakeFiles/Benchmark_FULL.dir/benchmark.obj: CXX_COMPILER__Benchmark_FULL_unscanned_Release E$:/GitHub-Projects/C/ethash/src/benchmark/benchmark.cpp || cmake_object_order_depends_target_Benchmark_FULL
+  DEP_FILE = src\benchmark\CMakeFiles\Benchmark_FULL.dir\benchmark.obj.d
   FLAGS = -std=c++11 -O3 -DNDEBUG -fdiagnostics-color=always  -DFULL
   INCLUDES = -IE:/GitHub-Projects/C/ethash/src/benchmark/..
   OBJECT_DIR = src\benchmark\CMakeFiles\Benchmark_FULL.dir
@@ -175,7 +326,7 @@ build src/benchmark/CMakeFiles/Benchmark_FULL.dir/benchmark.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable src\benchmark\Benchmark_FULL.exe
 
-build src/benchmark/Benchmark_FULL.exe: CXX_EXECUTABLE_LINKER__Benchmark_FULL_Release src/benchmark/CMakeFiles/Benchmark_FULL.dir/benchmark.cpp.obj | src/libethash/libethash.a || src/libethash/libethash.a
+build src/benchmark/Benchmark_FULL.exe: CXX_EXECUTABLE_LINKER__Benchmark_FULL_Release src/benchmark/CMakeFiles/Benchmark_FULL.dir/benchmark.obj | src/libethash/libethash.a || src/libethash/libethash.a
   FLAGS = -std=c++11 -O3 -DNDEBUG
   LINK_LIBRARIES = src/libethash/libethash.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\benchmark\CMakeFiles\Benchmark_FULL.dir
@@ -194,8 +345,8 @@ build src/benchmark/Benchmark_FULL.exe: CXX_EXECUTABLE_LINKER__Benchmark_FULL_Re
 
 build cmake_object_order_depends_target_Benchmark_LIGHT: phony || cmake_object_order_depends_target_ethash
 
-build src/benchmark/CMakeFiles/Benchmark_LIGHT.dir/benchmark.cpp.obj: CXX_COMPILER__Benchmark_LIGHT_unscanned_Release E$:/GitHub-Projects/C/ethash/src/benchmark/benchmark.cpp || cmake_object_order_depends_target_Benchmark_LIGHT
-  DEP_FILE = src\benchmark\CMakeFiles\Benchmark_LIGHT.dir\benchmark.cpp.obj.d
+build src/benchmark/CMakeFiles/Benchmark_LIGHT.dir/benchmark.obj: CXX_COMPILER__Benchmark_LIGHT_unscanned_Release E$:/GitHub-Projects/C/ethash/src/benchmark/benchmark.cpp || cmake_object_order_depends_target_Benchmark_LIGHT
+  DEP_FILE = src\benchmark\CMakeFiles\Benchmark_LIGHT.dir\benchmark.obj.d
   FLAGS = -std=c++11 -O3 -DNDEBUG -fdiagnostics-color=always
   INCLUDES = -IE:/GitHub-Projects/C/ethash/src/benchmark/..
   OBJECT_DIR = src\benchmark\CMakeFiles\Benchmark_LIGHT.dir
@@ -209,7 +360,7 @@ build src/benchmark/CMakeFiles/Benchmark_LIGHT.dir/benchmark.cpp.obj: CXX_COMPIL
 #############################################
 # Link the executable src\benchmark\Benchmark_LIGHT.exe
 
-build src/benchmark/Benchmark_LIGHT.exe: CXX_EXECUTABLE_LINKER__Benchmark_LIGHT_Release src/benchmark/CMakeFiles/Benchmark_LIGHT.dir/benchmark.cpp.obj | src/libethash/libethash.a || src/libethash/libethash.a
+build src/benchmark/Benchmark_LIGHT.exe: CXX_EXECUTABLE_LINKER__Benchmark_LIGHT_Release src/benchmark/CMakeFiles/Benchmark_LIGHT.dir/benchmark.obj | src/libethash/libethash.a || src/libethash/libethash.a
   FLAGS = -std=c++11 -O3 -DNDEBUG
   LINK_LIBRARIES = src/libethash/libethash.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\benchmark\CMakeFiles\Benchmark_LIGHT.dir
@@ -242,6 +393,48 @@ build src/benchmark/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/benchmark/rebuild_cache: phony src/benchmark/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/benchmark/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/benchmark/CMakeFiles/install.util: CUSTOM_COMMAND src/benchmark/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\src\benchmark && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/benchmark/install: phony src/benchmark/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/benchmark/CMakeFiles/install/local.util: CUSTOM_COMMAND src/benchmark/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\src\benchmark && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/benchmark/install/local: phony src/benchmark/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/benchmark/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/benchmark/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\src\benchmark && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/benchmark/install/strip: phony src/benchmark/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # E:/GitHub-Projects/C/ethash/CMakeLists.txt
@@ -270,6 +463,48 @@ build test/c/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build test/c/rebuild_cache: phony test/c/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build test/c/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build test/c/CMakeFiles/install.util: CUSTOM_COMMAND test/c/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\test\c && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build test/c/install: phony test/c/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build test/c/CMakeFiles/install/local.util: CUSTOM_COMMAND test/c/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\test\c && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build test/c/install/local: phony test/c/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build test/c/CMakeFiles/install/strip.util: CUSTOM_COMMAND test/c/all
+  COMMAND = cmd.exe /C "cd /D E:\GitHub-Projects\C\ethash\cmake-build-debug\test\c && C:\Users\georg\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\232.8660.186\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build test/c/install/strip: phony test/c/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
 
@@ -281,7 +516,11 @@ build Benchmark_LIGHT: phony src/benchmark/Benchmark_LIGHT.exe
 
 build Benchmark_LIGHT.exe: phony src/benchmark/Benchmark_LIGHT.exe
 
+build blake3: phony src/libethash/libblake3.a
+
 build ethash: phony src/libethash/libethash.a
+
+build libblake3.a: phony src/libethash/libblake3.a
 
 build libethash.a: phony src/libethash/libethash.a
 
@@ -307,7 +546,7 @@ build src/benchmark/all: phony src/benchmark/Benchmark_FULL.exe src/benchmark/Be
 #############################################
 # Folder: E:/GitHub-Projects/C/ethash/cmake-build-debug/src/libethash
 
-build src/libethash/all: phony src/libethash/libethash.a
+build src/libethash/all: phony src/libethash/libethash.a src/libethash/libblake3.a
 
 # =============================================================================
 
@@ -328,14 +567,14 @@ build test/c/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePushCheckState.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckSymbolExists.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindMPI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/GitHub-Projects/C/ethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/cmake/modules/CMakeParseArguments.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindCryptoPP.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindOpenCL.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageHandleStandardArgs.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageMessage.cmake E$:/GitHub-Projects/C/ethash/src/benchmark/CMakeLists.txt E$:/GitHub-Projects/C/ethash/src/libethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/test/c/CMakeLists.txt
+build build.ninja: RERUN_CMAKE | C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeASMInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePushCheckState.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckSymbolExists.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-ASM.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FeatureSummary.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindMPI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-ASM.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeASMCompiler.cmake CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/GitHub-Projects/C/ethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/cmake/modules/CMakeParseArguments.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindCryptoPP.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindOpenCL.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageHandleStandardArgs.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageMessage.cmake E$:/GitHub-Projects/C/ethash/src/benchmark/CMakeLists.txt E$:/GitHub-Projects/C/ethash/src/libethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/src/libethash/blake3-config.cmake.in E$:/GitHub-Projects/C/ethash/src/libethash/libblake3.pc.in E$:/GitHub-Projects/C/ethash/test/c/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePushCheckState.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckSymbolExists.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindMPI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/GitHub-Projects/C/ethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/cmake/modules/CMakeParseArguments.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindCryptoPP.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindOpenCL.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageHandleStandardArgs.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageMessage.cmake E$:/GitHub-Projects/C/ethash/src/benchmark/CMakeLists.txt E$:/GitHub-Projects/C/ethash/src/libethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/test/c/CMakeLists.txt: phony
+build C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeASMInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePushCheckState.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckSymbolExists.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-ASM.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FeatureSummary.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindBoost.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindMPI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-ASM.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/georg/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeASMCompiler.cmake CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake E$:/GitHub-Projects/C/ethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/cmake/modules/CMakeParseArguments.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindCryptoPP.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindOpenCL.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageHandleStandardArgs.cmake E$:/GitHub-Projects/C/ethash/cmake/modules/FindPackageMessage.cmake E$:/GitHub-Projects/C/ethash/src/benchmark/CMakeLists.txt E$:/GitHub-Projects/C/ethash/src/libethash/CMakeLists.txt E$:/GitHub-Projects/C/ethash/src/libethash/blake3-config.cmake.in E$:/GitHub-Projects/C/ethash/src/libethash/libblake3.pc.in E$:/GitHub-Projects/C/ethash/test/c/CMakeLists.txt: phony
 
 
 #############################################

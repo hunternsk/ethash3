@@ -7,13 +7,29 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   CMake that the project does not need compatibility with older versions.
 
 
+CMake Warning (dev) at CMakeLists.txt:2 (project):
+  Policy CMP0048 is not set: project() command manages VERSION variables.
+  Run "cmake --help-policy CMP0048" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The following variable(s) would be set to empty:
+
+    CMAKE_PROJECT_VERSION
+    CMAKE_PROJECT_VERSION_MAJOR
+    CMAKE_PROJECT_VERSION_MINOR
+    CMAKE_PROJECT_VERSION_PATCH
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
 -- Could NOT find CryptoPP (missing:  CRYPTOPP_ROOT_DIR CRYPTOPP_INCLUDE_DIR CRYPTOPP_LIBRARY) (Required is at least version "5.6.2")
+-- 
+ * AMD64 assembly, The library uses hand written amd64 SIMD assembly.
+
 -- Could NOT find MPI_C (missing: MPI_C_LIB_NAMES MPI_C_HEADER_DIR MPI_C_WORKS) 
 -- Could NOT find MPI_CXX (missing: MPI_CXX_LIB_NAMES MPI_CXX_HEADER_DIR MPI_CXX_WORKS) 
 -- Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND) 
 -- Could NOT find CryptoPP (missing:  CRYPTOPP_ROOT_DIR CRYPTOPP_INCLUDE_DIR CRYPTOPP_LIBRARY) (Required is at least version "5.6.2")
 -- Could NOT find OpenCL (missing:  OpenCL_LIBRARY OpenCL_INCLUDE_DIR) 
 -- Could NOT find Boost (missing: Boost_INCLUDE_DIR unit_test_framework system filesystem) (Required is at least version "1.48.0")
--- Configuring done (5.2s)
+-- Configuring done (5.3s)
 -- Generating done (0.0s)
 -- Build files have been written to: E:/GitHub-Projects/C/ethash/cmake-build-debug
