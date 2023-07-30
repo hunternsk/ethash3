@@ -1,0 +1,123 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.7"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src/libethash",
+					"jsonFile" : "directory-src.libethash-Debug-fc1a9c2bde92b4da3d42.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.7"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/libethash",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "src/benchmark",
+					"jsonFile" : "directory-src.benchmark-Debug-f121e447185d2c8721f7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.7"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/benchmark",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "test/c",
+					"jsonFile" : "directory-test.c-Debug-bc881f9a316fbe50a9c0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.7"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test/c"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "ethash",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "Benchmark_FULL::@06d4e844bc609143655b",
+					"jsonFile" : "target-Benchmark_FULL-Debug-1e45565b629b7c4a987f.json",
+					"name" : "Benchmark_FULL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Benchmark_LIGHT::@06d4e844bc609143655b",
+					"jsonFile" : "target-Benchmark_LIGHT-Debug-73842144b15624a52e6c.json",
+					"name" : "Benchmark_LIGHT",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ethash::@176bd60df8cb67409563",
+					"jsonFile" : "target-ethash-Debug-d2b72151faca21381485.json",
+					"name" : "ethash",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/GitHub-Projects/C/ethash/cmake-build-debug",
+		"source" : "E:/GitHub-Projects/C/ethash"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

@@ -17,7 +17,8 @@ set(FILES 	util.h
           	endian.h
           	compiler.h
           	fnv.h
-          	data_sizes.h)
+          	data_sizes.h
+        blake3/blake3.c)
 
 if (MSVC)
 	list(APPEND FILES util_win32.c io_win32.c mmap_win32.c)

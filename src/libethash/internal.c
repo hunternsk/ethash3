@@ -32,6 +32,7 @@
 #include "internal.h"
 #include "data_sizes.h"
 #include "io.h"
+#include "blake3/blake3.h"
 
 #ifdef WITH_CRYPTOPP
 
@@ -191,7 +192,7 @@ static bool ethash_hash(
 	fix_endian64(s_mix[0].double_words[4], nonce);
 
 	// compute sha3-512 hash and replicate across mix
-	SHA3_512(s_mix->bytes, s_mix->bytes, 40);
+    blake3_hash_512(s_mix->bytes, s_mix->bytes);
 	fix_endian_arr32(s_mix[0].words, 16);
 
 	node* const mix = s_mix + 1;
@@ -250,7 +251,7 @@ static bool ethash_hash(
 	fix_endian_arr32(mix->words, MIX_WORDS / 4);
 	memcpy(&ret->mix_hash, mix->bytes, 32);
 	// final Keccak hash
-	SHA3_256(&ret->result, s_mix->bytes, 64 + 32); // Keccak-256(s + compressed_mix)
+	blake3_hash_256(s_mix->bytes, (uint8_t*)&ret->result); // Keccak-256(s + compressed_mix)
 	return true;
 }
 
@@ -265,9 +266,9 @@ void ethash_quick_hash(
 	memcpy(buf, header_hash, 32);
 	fix_endian64_same(nonce);
 	memcpy(&(buf[32]), &nonce, 8);
-	SHA3_512(buf, buf, 40);
+	blake3_hash_512(buf, buf);
 	memcpy(&(buf[64]), mix_hash, 32);
-	SHA3_256(return_hash, buf, 64 + 32);
+    blake3_hash_256(buf, (uint8_t*)return_hash);
 }
 
 ethash_h256_t ethash_get_seedhash(uint64_t block_number)
