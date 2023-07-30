@@ -21,9 +21,7 @@
 */
 
 #include <assert.h>
-#include <inttypes.h>
 #include <stddef.h>
-#include <errno.h>
 #include <math.h>
 #include "mmap.h"
 #include "ethash.h"
@@ -33,6 +31,9 @@
 #include "data_sizes.h"
 #include "io.h"
 #include "blake3/blake3.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #ifdef WITH_CRYPTOPP
 
