@@ -43,3 +43,7 @@ add_library(${LIBRARY} ${FILES})
 if (CRYPTOPP_FOUND)
 	TARGET_LINK_LIBRARIES(${LIBRARY} ${CRYPTOPP_LIBRARIES})
 endif()
+
+add_subdirectory(blake3)
+add_executable(libblake3 ${SOURCE_FILES})
+target_link_libraries(libblake3)
