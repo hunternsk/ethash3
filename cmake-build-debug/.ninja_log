@@ -1,5 +1,0 @@
-# ninja log v5
-1	5140	7123913040949435	build.ninja	86c14c37ba7fc05e
-44	459	7123913046366843	src/libethash/CMakeFiles/ethash.dir/io.c.obj	29bfe02cef57b185
-49	667	7123913048436610	src/libethash/CMakeFiles/ethash.dir/sha3.c.obj	7efc36e8ddbdf5cb
-43	643	7123913144340299	src/libethash/CMakeFiles/ethash.dir/internal.c.obj	7e8dde5a5f26dcde

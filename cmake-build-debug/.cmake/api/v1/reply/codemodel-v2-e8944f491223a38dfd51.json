@@ -12,31 +12,36 @@
 						2,
 						3
 					],
-					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.7"
+					},
 					"projectIndex" : 0,
 					"source" : "."
 				},
 				{
 					"build" : "src/libethash",
-					"hasInstallRule" : true,
-					"jsonFile" : "directory-src.libethash-Debug-8128c675b4d8660c3466.json",
+					"jsonFile" : "directory-src.libethash-Debug-fc1a9c2bde92b4da3d42.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.9"
+						"string" : "2.8.7"
 					},
 					"parentIndex" : 0,
-					"projectIndex" : 1,
+					"projectIndex" : 0,
 					"source" : "src/libethash",
 					"targetIndexes" : 
 					[
-						2,
-						3
+						2
 					]
 				},
 				{
 					"build" : "src/benchmark",
 					"jsonFile" : "directory-src.benchmark-Debug-f121e447185d2c8721f7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.7"
+					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
 					"source" : "src/benchmark",
@@ -49,6 +54,10 @@
 				{
 					"build" : "test/c",
 					"jsonFile" : "directory-test.c-Debug-bc881f9a316fbe50a9c0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.7"
+					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
 					"source" : "test/c"
@@ -58,13 +67,10 @@
 			"projects" : 
 			[
 				{
-					"childIndexes" : 
-					[
-						1
-					],
 					"directoryIndexes" : 
 					[
 						0,
+						1,
 						2,
 						3
 					],
@@ -72,20 +78,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
-					]
-				},
-				{
-					"directoryIndexes" : 
-					[
-						1
-					],
-					"name" : "libblake3",
-					"parentIndex" : 0,
-					"targetIndexes" : 
-					[
-						2,
-						3
+						1,
+						2
 					]
 				}
 			],
@@ -107,17 +101,10 @@
 				},
 				{
 					"directoryIndex" : 1,
-					"id" : "blake3::@176bd60df8cb67409563",
-					"jsonFile" : "target-blake3-Debug-4cac9371a88fe6b3faaf.json",
-					"name" : "blake3",
-					"projectIndex" : 1
-				},
-				{
-					"directoryIndex" : 1,
 					"id" : "ethash::@176bd60df8cb67409563",
-					"jsonFile" : "target-ethash-Debug-348c151dfe1b82c58968.json",
+					"jsonFile" : "target-ethash-Debug-d2b72151faca21381485.json",
 					"name" : "ethash",
-					"projectIndex" : 1
+					"projectIndex" : 0
 				}
 			]
 		}

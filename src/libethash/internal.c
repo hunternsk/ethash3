@@ -30,7 +30,7 @@
 #include "internal.h"
 #include "data_sizes.h"
 #include "io.h"
-#include "blake3.h"
+#include "blake3/blake3.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
