@@ -3,7 +3,6 @@
 #include "endian.h"
 #include "ethash.h"
 #include <stdio.h>
-#include "blake3/blake3.h"
 
 #define ENABLE_SSE 0
 
