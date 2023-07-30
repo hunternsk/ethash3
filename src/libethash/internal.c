@@ -276,9 +276,9 @@ void ethash_quick_hash(
 	memcpy(buf, header_hash, 32);
 	fix_endian64_same(nonce);
 	memcpy(&(buf[32]), &nonce, 8);
-	blake3_hash_512(buf, buf);
+	SHA3_512(buf, buf, 40);
 	memcpy(&(buf[64]), mix_hash, 32);
-    blake3_hash_256(buf, (uint8_t*)return_hash);
+	SHA3_256(return_hash, buf, 64 + 32);
 }
 
 ethash_h256_t ethash_get_seedhash(uint64_t block_number)
