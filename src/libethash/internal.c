@@ -202,7 +202,7 @@ static bool ethash_hash(
 	fix_endian64(s_mix[0].double_words[4], nonce);
 
 	// compute sha3-512 hash and replicate across mix
-    blake3_hash_512(s_mix->bytes, s_mix->bytes);
+    blake3_hash_512(s_mix->bytes, s_mix->bytes, 40);
 	fix_endian_arr32(s_mix[0].words, 16);
 
 	node* const mix = s_mix + 1;
@@ -261,7 +261,7 @@ static bool ethash_hash(
 	fix_endian_arr32(mix->words, MIX_WORDS / 4);
 	memcpy(&ret->mix_hash, mix->bytes, 32);
 	// final Keccak hash
-	blake3_hash_256(s_mix->bytes, (uint8_t*)&ret->result); // Keccak-256(s + compressed_mix)
+	blake3_hash_256(s_mix->bytes, (uint8_t*)&ret->result, 64 + 32); // Keccak-256(s + compressed_mix)
 	return true;
 }
 
@@ -870,16 +870,16 @@ void blake3_hasher_finalize(const blake3_hasher *self, void *out,
     output_root_bytes(&current_output, out, out_len);
 }
 
-void blake3_hash_256(const uint8_t *input, uint8_t *out) {
+void blake3_hash_256(const uint8_t *input, uint8_t *out, size_t len) {
     blake3_hasher hasher;
     blake3_hasher_init(&hasher);
-    blake3_hasher_update(&hasher, input, sizeof(input));
+    blake3_hasher_update(&hasher, input, len);
     blake3_hasher_finalize(&hasher, out, 32);
 }
 
-void blake3_hash_512(const uint8_t *input, uint8_t *out) {
+void blake3_hash_512(const uint8_t *input, uint8_t *out, size_t len) {
     blake3_hasher hasher;
     blake3_hasher_init(&hasher);
-    blake3_hasher_update(&hasher, input, sizeof(input));
+    blake3_hasher_update(&hasher, input, len);
     blake3_hasher_finalize(&hasher, out, 64);
 }
