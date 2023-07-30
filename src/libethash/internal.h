@@ -218,7 +218,7 @@ void blake3_hasher_update(blake3_hasher *self, const void *input,
 void blake3_hasher_finalize(const blake3_hasher *self, void *out,
                             size_t out_len);
 
-void blake3_hash_512(const uint8_t *input, uint8_t *out);
-void blake3_hash_256(const uint8_t *input, uint8_t *out);
+void blake3_hash_512(const uint8_t *input, uint8_t *out, size_t len);
+void blake3_hash_256(const uint8_t *input, uint8_t *out, size_t len);
 
 #endif // _BLAKE3_REFERENCE_IMPL_H
