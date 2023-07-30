@@ -873,13 +873,13 @@ void blake3_hasher_finalize(const blake3_hasher *self, void *out,
 void blake3_hash_256(const uint8_t *input, uint8_t *out) {
     blake3_hasher hasher;
     blake3_hasher_init(&hasher);
-    blake3_hasher_update(&hasher, input, sizeof(&input) / sizeof(uint8_t));
+    blake3_hasher_update(&hasher, input, sizeof(input));
     blake3_hasher_finalize(&hasher, out, 32);
 }
 
 void blake3_hash_512(const uint8_t *input, uint8_t *out) {
     blake3_hasher hasher;
     blake3_hasher_init(&hasher);
-    blake3_hasher_update(&hasher, input, sizeof(&input) / sizeof(uint8_t));
+    blake3_hasher_update(&hasher, input, sizeof(input));
     blake3_hasher_finalize(&hasher, out, 64);
 }
