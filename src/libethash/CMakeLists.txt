@@ -18,8 +18,6 @@ set(FILES 	util.h
           	compiler.h
           	fnv.h
           	data_sizes.h
-			reference_impl.c
-			reference_impl.h
 )
 
 if (MSVC)

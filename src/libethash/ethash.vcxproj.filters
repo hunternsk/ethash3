@@ -7,9 +7,6 @@
     <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\internal.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\reference_impl.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\util_win32.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -40,9 +37,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\data_sizes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\reference_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\sha3.h">
