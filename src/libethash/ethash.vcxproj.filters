@@ -19,6 +19,9 @@
     <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\sha3.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\GitHub-Projects\C\ethash\src\libethash\blake3\reference_impl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\util.h">
@@ -40,6 +43,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\sha3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\GitHub-Projects\C\ethash\src\libethash\blake3\reference_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

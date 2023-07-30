@@ -38,6 +38,8 @@ else()
 	list(APPEND FILES sha3.c sha3.h)
 endif()
 
+list(APPEND FILES blake3/reference_impl.c blake3/reference_impl.h)
+
 add_library(${LIBRARY} ${FILES})
 
 if (CRYPTOPP_FOUND)
