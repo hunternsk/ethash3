@@ -1,0 +1,2 @@
+E:\GitHub-Projects\C\ethash\src\libethash\Debug\ethash.pdb
+E:\GitHub-Projects\C\ethash\src\libethash\ethash.dir\Debug\ethash.pdb

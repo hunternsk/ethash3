@@ -1,63 +1,95 @@
-use crate::{CVWords, IncrementCounter, BLOCK_LEN, OUT_LEN};
+#! /usr/bin/env python3
 
-// Note that there is no AVX2 implementation of compress_in_place or
-// compress_xof.
+import json
+import os
+import platform
+import subprocess
 
-// Unsafe because this may only be called on platforms supporting AVX2.
-pub unsafe fn hash_many<const N: usize>(
-    inputs: &[&[u8; N]],
-    key: &CVWords,
-    counter: u64,
-    increment_counter: IncrementCounter,
-    flags: u8,
-    flags_start: u8,
-    flags_end: u8,
-    out: &mut [u8],
-) {
-    // The Rust hash_many implementations do bounds checking on the `out`
-    // array, but the C implementations don't. Even though this is an unsafe
-    // function, assert the bounds here.
-    assert!(out.len() >= inputs.len() * OUT_LEN);
-    ffi::blake3_hash_many_avx2(
-        inputs.as_ptr() as *const *const u8,
-        inputs.len(),
-        N / BLOCK_LEN,
-        key.as_ptr(),
-        counter,
-        increment_counter.yes(),
-        flags,
-        flags_start,
-        flags_end,
-        out.as_mut_ptr(),
+HERE = os.path.dirname(os.path.abspath(__file__))
+os.chdir(HERE)
+
+if platform.system() == "Windows":
+    EXE = "blake3.exe"
+    BUILD_COMMAND = [
+        "cl.exe",
+        "reference_impl.c",
+        "main.c",
+        "/W4",  # display most warnings, but not those off by default
+        "/WX",  # like -Werror
+        "/Fe:",  # like -o
+        EXE,
+    ]
+else:
+    EXE = "./blake3"
+    BUILD_COMMAND = [
+        "gcc",
+        "reference_impl.c",
+        "main.c",
+        "-g",
+        "-pedantic",
+        "-Wall",
+        "-Werror",
+        "-o",
+        EXE,
+        "-fsanitize=address,undefined",
+    ]
+
+
+def test_input(length):
+    ret = bytearray()
+    for i in range(length):
+        ret.append(i % 251)
+    return ret
+
+
+def test_run(input_len, flags):
+    return (
+        subprocess.run(
+            ["./blake3"] + flags,
+            input=test_input(input_len),
+            stdout=subprocess.PIPE,
+            check=True,
+        )
+        .stdout.decode()
+        .strip()
     )
-}
 
-pub mod ffi {
-    extern "C" {
-        pub fn blake3_hash_many_avx2(
-            inputs: *const *const u8,
-            num_inputs: usize,
-            blocks: usize,
-            key: *const u32,
-            counter: u64,
-            increment_counter: bool,
-            flags: u8,
-            flags_start: u8,
-            flags_end: u8,
-            out: *mut u8,
-        );
-    }
-}
 
-#[cfg(test)]
-mod test {
-    use super::*;
+def main():
+    print(" ".join(BUILD_COMMAND))
+    subprocess.run(BUILD_COMMAND, check=True)
 
-    #[test]
-    fn test_hash_many() {
-        if !crate::platform::avx2_detected() {
-            return;
-        }
-        crate::test::test_hash_many_fn(hash_many, hash_many);
-    }
-}
+    with open("test_vectors.json") as f:
+        vectors = json.load(f)
+    test_key = vectors["key"].encode()
+    test_context = vectors["context_string"]
+    for case in vectors["cases"]:
+        input_len = case["input_len"]
+        print("input length:", input_len)
+
+        # regular hashing
+        assert test_run(input_len, []) == case["hash"][:64]
+        assert test_run(input_len, ["--len", "131"]) == case["hash"]
+
+        # keyed hashing
+        assert test_run(input_len, ["--key", test_key.hex()]) == case["keyed_hash"][:64]
+        assert (
+            test_run(input_len, ["--key", test_key.hex(), "--len", "131"])
+            == case["keyed_hash"]
+        )
+
+        # key derivation
+        assert (
+            test_run(input_len, ["--derive-key", test_context])
+            == case["derive_key"][:64]
+        )
+        assert (
+            test_run(input_len, ["--derive-key", test_context, "--len", "131"])
+            == case["derive_key"]
+        )
+
+    print("TESTS PASSED")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+E:/GitHub-Projects/C/ethash/cmake/modules/CMakeParseArguments.cmake
+E:/GitHub-Projects/C/ethash/cmake/modules/FindCryptoPP.cmake
+E:/GitHub-Projects/C/ethash/cmake/modules/FindPackageHandleStandardArgs.cmake
+E:/GitHub-Projects/C/ethash/cmake/modules/FindPackageMessage.cmake
+E:/GitHub-Projects/C/ethash/src/libethash/CMakeLists.txt

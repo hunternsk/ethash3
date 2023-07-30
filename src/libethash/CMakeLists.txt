@@ -18,7 +18,7 @@ set(FILES 	util.h
           	compiler.h
           	fnv.h
           	data_sizes.h
-        blake3/blake3.c)
+)
 
 if (MSVC)
 	list(APPEND FILES util_win32.c io_win32.c mmap_win32.c)
@@ -43,7 +43,3 @@ add_library(${LIBRARY} ${FILES})
 if (CRYPTOPP_FOUND)
 	TARGET_LINK_LIBRARIES(${LIBRARY} ${CRYPTOPP_LIBRARIES})
 endif()
-
-add_subdirectory(blake3)
-add_executable(libblake3 blake3)
-target_link_libraries(libblake3)

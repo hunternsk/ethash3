@@ -1,0 +1,10 @@
+^E:\GITHUB-PROJECTS\C\ETHASH\CMAKEFILES\B2AEE8D0B6428852AF73A31EF54DD1DF\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/GitHub-Projects/C/ethash -BE:/GitHub-Projects/C/ethash --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/GitHub-Projects/C/ethash/ethash.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
