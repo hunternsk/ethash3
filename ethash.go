@@ -174,6 +174,13 @@ func hashToH256(in common.Hash) C.ethash_h256_t {
 	return C.ethash_h256_t{b: *(*[32]C.uint8_t)(unsafe.Pointer(&in[0]))}
 }
 
+func (l *Light) Compute(blockNum uint64, hashNoNonce common.Hash, nonce uint64) (mixDigest common.Hash, result common.Hash) {
+	cache := l.getCache(blockNum)
+	dagSize := C.ethash_get_datasize(C.uint64_t(blockNum))
+	_, mixDigest, result = cache.compute(uint64(dagSize), hashNoNonce, nonce)
+	return
+}
+
 func (l *Light) getCache(blockNum uint64) *cache {
 	var c *cache
 	epoch := blockNum / epochLength
