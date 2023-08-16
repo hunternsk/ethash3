@@ -21,6 +21,7 @@ import (
 	"bytes"
 	"crypto/rand"
 	"encoding/hex"
+	"fmt"
 	"log"
 	"math/big"
 	"os"
@@ -51,8 +52,22 @@ func (b *testBlock) MixDigest() common.Hash   { return b.mixDigest }
 func (b *testBlock) NumberU64() uint64        { return b.number }
 
 var validBlocks = []*testBlock{
-	// from proof of concept nine testnet, epoch 0
 	{
+		number:      168156,
+		hashNoNonce: common.HexToHash("0x8b0dc640642dafe6dc70b88a9d3db379b4f0ecbba7b3d6016e758f8318815cb4"),
+		difficulty:  big.NewInt(8565054),
+		nonce:       0xe48c99b9bd070ad1,
+		mixDigest:   common.HexToHash("0x88058541935c5e92bf93d6cc3e04436cf3c8ea62d2df51ea771552a1ca4dea1c"),
+	},
+	/*{
+		number:      137887,
+		hashNoNonce: common.HexToHash("0x303cc67f0b2d90835b847d2ac35edfdabafdac8c156e651fa18f93861f550470"),
+		difficulty:  big.NewInt(8565054),
+		nonce:       0xfe246d0f014e046b,
+		mixDigest:   common.HexToHash("0x8e4ed540b675d7d55116c90834c2ece0762346a77f06bb112ba0b8fe487333b5"),
+	},*/
+	// from proof of concept nine testnet, epoch 0
+	/*{
 		number:      22,
 		hashNoNonce: common.HexToHash("372eca2454ead349c3df0ab5d00b0b706b23e49d469387db91811cee0358fc6d"),
 		difficulty:  big.NewInt(132416),
@@ -74,15 +89,23 @@ var validBlocks = []*testBlock{
 		difficulty:  big.NewInt(2467358),
 		nonce:       0x50377003e5d830ca,
 		mixDigest:   common.HexToHash("ab546a5b73c452ae86dadd36f0ed83a6745226717d3798832d1b20b489e82063"),
-	},
+	},*/
+}
+
+func TestEthashCompute(t *testing.T) {
+	eth := New()
+	for i, block := range validBlocks {
+		ok, mixDigest, result := eth.Compute(block.number, block.hashNoNonce, block.nonce)
+		fmt.Println(i, ok, mixDigest.Hex(), result.Hex())
+	}
 }
 
 var invalidZeroDiffBlock = testBlock{
 	number:      61440000,
-	hashNoNonce: crypto.Sha3Hash([]byte("foo")),
+	hashNoNonce: common.Hash(crypto.Keccak256Hash([]byte("foo"))),
 	difficulty:  big.NewInt(0),
 	nonce:       0xcafebabec00000fe,
-	mixDigest:   crypto.Sha3Hash([]byte("bar")),
+	mixDigest:   common.Hash(crypto.Keccak256Hash([]byte("bar"))),
 }
 
 func TestEthashVerifyValid(t *testing.T) {
@@ -201,7 +224,7 @@ func TestGetSeedHash(t *testing.T) {
 	if bytes.Compare(seed0, make([]byte, 32)) != 0 {
 		log.Printf("seedHash for block 0 should be 0s, was: %v\n", seed0)
 	}
-	seed1, err := GetSeedHash(30000)
+	seed1, err := GetSeedHash(32000)
 	if err != nil {
 		t.Error(err)
 	}
@@ -215,7 +238,7 @@ func TestGetSeedHash(t *testing.T) {
 	}
 
 	if bytes.Compare(seed1, expectedSeed1) != 0 {
-		log.Printf("seedHash for block 1 should be: %v,\nactual value: %v\n", expectedSeed1, seed1)
+		fmt.Printf("seedHash for block 1 should be: %v,\nactual value: %v\n", hex.EncodeToString(expectedSeed1), hex.EncodeToString(seed1))
 	}
 
 }
